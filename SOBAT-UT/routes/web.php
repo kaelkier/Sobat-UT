@@ -2,11 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InstansiController;
-use App\Http\Controllers\DashboardController;use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 
-// LOGIN
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/instansi', [InstansiController::class, 'index'])->name('instansi.index');
 Route::post('/instansi', [InstansiController::class, 'store'])->name('instansi.store');
@@ -29,6 +26,6 @@ Route::match(['get', 'post'], '/dashboard', [DashboardController::class, 'index'
 
 
 Route::get('/', function () {
-    return view('login');
-})->name('login');
+    return view('dashboard');
+})->name('dashboard');
 
